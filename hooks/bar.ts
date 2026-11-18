@@ -21,8 +21,8 @@ const tone = (left: number) => (left <= 10 ? 'low' : left <= 30 ? 'mid' : 'ok')
 export function buildSvg(list: Limit[], at: number): string {
   const colW = 280
   const gap = 28
-  const padX = 20
-  const h = 66
+  const padX = 0 // the app already wraps this in its own rounded card, so no card or padding of our own
+  const h = 50
   const n = list.length
   const w = padX * 2 + n * colW + (n - 1) * gap
 
@@ -36,11 +36,11 @@ export function buildSvg(list: Limit[], at: number): string {
       const reset = esc(resetText(l.resetsAt, at))
       return `
   <g transform="translate(${x} 0)">
-    <text class="lbl" x="0" y="25">${label}</text>
-    <text class="pct ${t}" x="${colW}" y="25" text-anchor="end">${left}<tspan class="unit">% left</tspan></text>
-    <rect class="track" x="0" y="34" width="${colW}" height="8" rx="4"/>
-    <rect class="fill ${t}" x="0" y="34" width="${fillW}" height="8" rx="4"/>
-    <text class="sub" x="0" y="58">${reset}</text>
+    <text class="lbl" x="0" y="14">${label}</text>
+    <text class="pct ${t}" x="${colW}" y="14" text-anchor="end">${left}<tspan class="unit">% left</tspan></text>
+    <rect class="track" x="0" y="23" width="${colW}" height="8" rx="4"/>
+    <rect class="fill ${t}" x="0" y="23" width="${fillW}" height="8" rx="4"/>
+    <text class="sub" x="0" y="47">${reset}</text>
   </g>`
     })
     .join('')
@@ -53,7 +53,6 @@ export function buildSvg(list: Limit[], at: number): string {
   </defs>
   <style>
     text { font-family: system-ui, 'Segoe UI', sans-serif; }
-    .card { fill: rgba(128,128,128,0.08); stroke: rgba(128,128,128,0.22); stroke-width: 1; }
     .track { fill: rgba(128,128,128,0.22); }
     .lbl { font-size: 12px; font-weight: 600; fill: #6b645c; letter-spacing: 0.2px; }
     .sub { font-size: 11px; fill: #8a8279; }
@@ -67,6 +66,6 @@ export function buildSvg(list: Limit[], at: number): string {
       .pct.ok { fill: #5eead4; } .pct.mid { fill: #fcd34d; } .pct.low { fill: #fda4af; }
     }
   </style>
-  <rect class="card" x="0.5" y="0.5" width="${w - 1}" height="${h - 1}" rx="14"/>${cols}
+${cols}
 </svg>`
 }

@@ -1,6 +1,6 @@
 {
   "name": "usage-band",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A soft, modern usage card above the prompt: remaining 5-hour and weekly limits as slim gradient bars with reset times",
   "author": { "name": "idanam2" },
   "repository": "https://github.com/idanam2/claude-usage-band",
