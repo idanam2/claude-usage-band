@@ -1,0 +1,5 @@
+{
+  "name": "claude-usage-band",
+  "owner": { "name": "idanam2" },
+  "plugins": [{ "name": "usage-band", "source": "./", "description": "A soft, modern usage card above the Claude Code prompt" }]
+}
