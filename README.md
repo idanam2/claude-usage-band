@@ -7,7 +7,7 @@ A soft, modern usage card that sits right above the Claude Code prompt.
 - **Remaining usage, not used.** Each limit (5-hour session, weekly, spend) is a slim gradient bar with a big "% left".
 - **Reset time at a glance.** `resets in 2h 14m` under every bar.
 - **Calm colors that warn.** Teal when you have plenty, amber under 30%, rose under 10%.
-- **Light and dark.** No extra frame: it sits in the app's own rounded card and follows its light or dark mode.
+- **Light and dark.** The card is translucent and follows the app's mode.
 - **Terminal friendly.** In a plain terminal (no graphics) it falls back to compact text bars.
 
 It is a Claude Code "mod": one hook on the `AbovePrompt` slot, a few dozen lines, no dependencies, and it reads only the rate-limit numbers Claude Code already has. Nothing is sent anywhere.
